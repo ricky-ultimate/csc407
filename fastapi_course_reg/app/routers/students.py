@@ -22,7 +22,7 @@ async def create_student(student: StudentCreate):
         raise HTTPException(status_code=400, detail="Email already registered")
 
     new_student = await db.student.create(
-        data=student.dict(),
+        data=student.dict(), # type: ignore
         include={"registeredCourses": {"include": {"course": True}}}
     )
     return _transform_student(new_student)
