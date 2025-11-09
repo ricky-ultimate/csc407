@@ -1,10 +1,10 @@
 from fastapi import APIRouter, HTTPException
 from app.db import db
-from app.schemas.registration import RegistrationCreate
+from app.schemas.registration import RegistrationCreate, RegistrationOut
 
 router = APIRouter(prefix="/registrations", tags=["Registrations"])
 
-@router.post("/")
+@router.post("/", response_model=RegistrationOut)
 async def register_student(data: RegistrationCreate):
     # Verify student and course exist
     student = await db.student.find_unique(where={"id": data.student_id})
@@ -19,7 +19,10 @@ async def register_student(data: RegistrationCreate):
     if existing:
         raise HTTPException(status_code=400, detail="Already registered")
 
-    return await db.registration.create(data={
-        "studentId": data.student_id,
-        "courseId": data.course_id
-    })
+    # Create registration and include related data
+    registration = await db.registration.create(
+        data={"studentId": data.student_id, "courseId": data.course_id},
+        include={"student": True, "course": True}
+    )
+
+    return registration
