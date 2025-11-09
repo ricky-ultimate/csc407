@@ -2,6 +2,7 @@ services:
   - type: web
     name: fastapi-course-reg
     env: python
+    rootDir: fastapi_course_reg
     plan: starter
     buildCommand: |
       pip install --upgrade pip
