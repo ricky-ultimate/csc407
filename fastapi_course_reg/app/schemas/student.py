@@ -12,5 +12,6 @@ class StudentOut(BaseModel):
     email: EmailStr
     registeredCourses: list[CourseOut] | None = None  #  include their courses
 
-    class Config:
-        orm_mode = True
+    model_config = {
+        "from_attributes": True
+    }

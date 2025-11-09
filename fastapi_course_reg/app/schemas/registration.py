@@ -15,5 +15,6 @@ class RegistrationOut(BaseModel):
     student: StudentOut | None = None
     course: CourseOut | None = None
 
-    class Config:
-        orm_mode = True
+    model_config = {
+        "from_attributes": True
+    }
