@@ -8,3 +8,4 @@ class CourseOut(BaseModel):
     id: int
     title: str
     code: str
+    units: int
