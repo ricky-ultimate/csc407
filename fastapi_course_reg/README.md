@@ -216,13 +216,13 @@ model Student {
 
 ## **8. Prisma Relevance**
 
-* Prisma is your **database ORM (Object-Relational Mapper)**.
+* Prisma is the **database ORM (Object-Relational Mapper)**.
 * Provides a **Python client (`prisma-client-py`)** to easily read/write database records.
 * Ensures **type safety**: your database fields map to Python objects.
-* Handles **relations automatically**, so you can fetch a student with their courses or a course with its registrations in one call.
-* Eliminates boilerplate SQL: you write Python, Prisma generates queries.
+* Handles **relations automatically**, so we can fetch a student with their courses or a course with its registrations in one call.
+* Eliminates boilerplate SQL: we write Python, Prisma generates queries.
 
-Think of Prisma as **the bridge between your Python app and PostgreSQL**, managing data in a structured and type-safe way.
+Think of Prisma as **the bridge between the Python app and PostgreSQL**, managing data in a structured and type-safe way.
 
 ---
 
@@ -236,4 +236,4 @@ Think of Prisma as **the bridge between your Python app and PostgreSQL**, managi
 6. Schemas → validate and structure API input/output.
 7. Prisma → defines database models and relationships and provides a type-safe client to interact with the DB.
 
-Essentially, this is a **basic course registration API**: you can add students, add courses, and register students to courses, with Prisma handling all database interactions efficiently.
+Essentially, this is a **basic course registration API**: we can add students, add courses, and register students to courses, with Prisma handling all database interactions efficiently.
